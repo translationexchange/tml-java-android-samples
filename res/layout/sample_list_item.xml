@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@color/sample_item_background" >
+
+    <TextView
+        android:id="@+id/textview_result_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/textview_result"
+        android:padding="5dp"
+        android:paddingRight="10dp"
+        android:text="Result:"
+        android:textColor="@color/sample_item_title"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textview_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textview_result_title"
+        android:layout_toRightOf="@+id/textview_tokens_title"
+        android:padding="5dp"
+        android:text="Result"
+        android:textColor="@color/sample_item_value"
+        android:textSize="12sp" />
+    
+    <TextView
+        android:id="@+id/textview_tml_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textview_result_title"
+        android:padding="5dp"
+        android:text="TML:"
+        android:textColor="@color/sample_item_title"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textview_tml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textview_result"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textview_tml_title"
+        android:padding="5dp"
+        android:paddingRight="40dp"
+        android:text="TML"
+        android:textColor="@color/sample_item_title"
+        android:textSize="12sp" />
+    
+    <TextView
+        android:id="@+id/textview_tokens_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textview_tml_title"
+        android:padding="5dp"
+        android:text="Tokens:"
+        android:textColor="@color/sample_item_title"
+        android:textSize="12sp" />
+    
+    <TextView
+        android:id="@+id/textview_tokens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textview_result"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textview_tokens_title"
+        android:padding="5dp"
+        android:paddingRight="40dp"
+        android:text="Tokens"
+        android:textColor="@color/sample_item_title"
+        android:textSize="12sp" />
+        
+    
+    
+
+</RelativeLayout>
