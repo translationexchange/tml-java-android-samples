@@ -24,12 +24,12 @@ package com.tr8n.android.samples.models;
 
 import java.util.Map;
 
-import android.text.SpannableString;
+import com.tr8n.android.Tr8n;
 
-import com.tr8n.core.Tr8n;
+import android.text.Spannable;
 
 public class SpannedSample extends Sample {
-	SpannableString translation;
+	Spannable translation;
 	
 	public SpannedSample(String title) {
 		super(title);
@@ -45,7 +45,7 @@ public class SpannedSample extends Sample {
 	
 	public CharSequence getTranslation() {
 		if (translation == null)
-			translation = (SpannableString) Tr8n.translateStyledString(getLabel(), getDescription(), getTokens());
+			translation = Tr8n.translateSpannableString(getLabel(), getDescription(), getTokens());
 			
 		return translation;
 	}	
