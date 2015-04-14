@@ -20,32 +20,33 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples.models;
+package com.translationexchange.android.samples.fragments;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
-import android.text.Html;
+import com.translationexchange.core.Utils;
+import com.translationexchange.android.samples.models.HtmlSample;
+import com.translationexchange.android.samples.models.Sample;
 
-import com.tr8n.core.Tr8n;
-
-public class HtmlSample extends Sample {
+public class CombinedTokensFragment extends SamplesFragment {
 	
-	public HtmlSample(String title) {
-		super(title);
+	public CombinedTokensFragment(){}
+	
+	protected List<Sample> getSamples() {
+		if (samples == null) {
+			samples = new ArrayList<Sample>();
+			samples.add(new HtmlSample("You have [indent: {count|| message}]", Utils.buildMap(
+					"indent", "<strong>{$0}</strong>",
+					"count", 1
+					)));
+			samples.add(new HtmlSample("You have [indent: {count|| message}]", Utils.buildMap(
+					"indent", "<i>{$0}</i>",
+					"count", 5
+					)));
+		}
+		
+		return samples;
 	}
-	
-	public HtmlSample(String label, Map<String, Object> tokens) {
-		super(label, tokens);
-	}
-	
-	public HtmlSample(String label, String description, Map<String, Object> tokens) {
-		super(label, description, tokens);
-	}
-	
-	public CharSequence getTranslation() {
-		if (translation == null)
-			translation = Tr8n.translate(getLabel(), getDescription(), getTokens());
-			
-		return Html.fromHtml(translation);
-	}	
+
 }

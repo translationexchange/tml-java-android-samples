@@ -20,9 +20,9 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples.models;
+package com.translationexchange.android.samples.models;
 
-import com.tr8n.core.Tr8n;
+import com.translationexchange.core.Tml;
 
 import android.app.Fragment;
 
@@ -47,7 +47,7 @@ public class NavDrawerItem {
 	}
 		
 	public String getTitle(){
-		return Tr8n.translate(this.title);
+		return Tml.translate(this.title);
 	}
 
 	public void setTitle(String title){

@@ -20,7 +20,7 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples.adapters;
+package com.translationexchange.android.samples.adapters;
 
 import java.util.List;
 
@@ -32,25 +32,26 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.tr8n.android.samples.R;
-import com.tr8n.android.samples.models.NavDrawerItem;
+import com.translationexchange.android.samples.R;
+import com.translationexchange.core.Tml;
+import com.translationexchange.android.samples.models.Sample;
 
-public class NavDrawerListAdapter extends BaseAdapter {
+public class SampleListAdapter extends BaseAdapter {
 	
 	private Context context;
-	private List<NavDrawerItem> navDrawerItems;
+	private List<Sample> samples;
 	
-	public NavDrawerListAdapter(Context context, List<NavDrawerItem> navDrawerItems){
+	public SampleListAdapter(Context context, List<Sample> samples){
 		this.context = context;
-		this.navDrawerItems = navDrawerItems;
+		this.samples = samples;
 	}
 
 	public int getCount() {
-		return navDrawerItems.size();
+		return samples.size();
 	}
 
 	public Object getItem(int position) {		
-		return navDrawerItems.get(position);
+		return samples.get(position);
 	}
 
 	public long getItemId(int position) {
@@ -60,14 +61,27 @@ public class NavDrawerListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.drawer_list_item, null);
+            convertView = mInflater.inflate(R.layout.sample_list_item, null);
         }
          
-//        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon);
-        TextView txtTitle = (TextView) convertView.findViewById(R.id.item_title);
-//        imgIcon.setImageResource(navDrawerItems.get(position).getIcon());        
-        txtTitle.setText(navDrawerItems.get(position).getTitle());
+		convertView.setMinimumHeight(180);
+		Sample sample = samples.get(position);
+		
+        TextView txtTitle = (TextView) convertView.findViewById(R.id.textview_result_title);
+        txtTitle.setText(Tml.translate("Result:"));
+        txtTitle = (TextView) convertView.findViewById(R.id.textview_result);
+        txtTitle.setText(sample.getTranslation());
         
+        txtTitle = (TextView) convertView.findViewById(R.id.textview_tml_title);
+        txtTitle.setText(Tml.translate("TML:"));
+        txtTitle = (TextView) convertView.findViewById(R.id.textview_tml);
+        txtTitle.setText(sample.getLabel());
+        
+        txtTitle = (TextView) convertView.findViewById(R.id.textview_tokens_title);
+        txtTitle.setText(Tml.translate("Tokens:"));
+        txtTitle = (TextView) convertView.findViewById(R.id.textview_tokens);
+        txtTitle.setText(sample.getTokensJSON());
+
         return convertView;
 	}
 

@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.tr8nhub</groupId>
-	<artifactId>android-samples</artifactId>
-	<version>0.1.0</version>
+	<groupId>com.translationexchange</groupId>
+	<artifactId>tml-android-samples</artifactId>
+	<version>0.2.1</version>
 	<packaging>apk</packaging>
-	<name>com.tr8n.android.samples</name>
+	<name>com.translationexchange.android.samples</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,9 +22,9 @@
 			<scope>provided</scope>
 		</dependency>
     <dependency>
-        <groupId>com.tr8nhub</groupId>
-        <artifactId>android-clientsdk</artifactId>
-        <version>0.1.0</version>
+        <groupId>com.translationexchange</groupId>
+        <artifactId>tml-android</artifactId>
+        <version>0.2.1</version>
     </dependency>
   </dependencies>
 	<build>

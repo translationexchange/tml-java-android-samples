@@ -20,14 +20,14 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples.fragments;
+package com.translationexchange.android.samples.fragments;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tr8n.android.samples.models.Sample;
-import com.tr8n.core.Tr8n;
-import com.tr8n.core.Utils;
+import com.translationexchange.core.Tml;
+import com.translationexchange.core.Utils;
+import com.translationexchange.android.samples.models.Sample;
 
 public class DataTokensFragment extends SamplesFragment {
 	
@@ -39,7 +39,7 @@ public class DataTokensFragment extends SamplesFragment {
 			samples.add(new Sample("Hello {user}", Utils.buildMap("user", "Michael")));
 			
 			samples.add(new Sample("You have selected {language_name} languge", 
-					Utils.buildMap("language_name", Tr8n.getCurrentLanguage().getEnglishName())));
+					Utils.buildMap("language_name", Tml.getCurrentLanguage().getEnglishName())));
 			samples.add(new Sample("Number of messages: {count}", Utils.buildMap("count", 5)));
 
 			samples.add(new Sample("Hello {user.name}, you are a {user.gender}", 

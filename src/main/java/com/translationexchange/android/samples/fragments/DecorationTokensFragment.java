@@ -20,15 +20,15 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples.fragments;
+package com.translationexchange.android.samples.fragments;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tr8n.android.samples.models.HtmlSample;
-import com.tr8n.android.samples.models.Sample;
-import com.tr8n.android.samples.models.SpannedSample;
-import com.tr8n.core.Utils;
+import com.translationexchange.core.Utils;
+import com.translationexchange.android.samples.models.HtmlSample;
+import com.translationexchange.android.samples.models.Sample;
+import com.translationexchange.android.samples.models.SpannedSample;
 
 public class DecorationTokensFragment extends SamplesFragment {
 	

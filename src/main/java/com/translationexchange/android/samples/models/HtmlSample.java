@@ -20,34 +20,32 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples.models;
+package com.translationexchange.android.samples.models;
 
 import java.util.Map;
 
-import com.tr8n.android.Tr8n;
+import android.text.Html;
 
-import android.text.Spannable;
+import com.translationexchange.core.Tml;
 
-public class SpannedSample extends Sample {
-	Spannable translation;
+public class HtmlSample extends Sample {
 	
-	public SpannedSample(String title) {
+	public HtmlSample(String title) {
 		super(title);
 	}
 	
-	public SpannedSample(String label, Map<String, Object> tokens) {
+	public HtmlSample(String label, Map<String, Object> tokens) {
 		super(label, tokens);
 	}
 	
-	public SpannedSample(String label, String description, Map<String, Object> tokens) {
+	public HtmlSample(String label, String description, Map<String, Object> tokens) {
 		super(label, description, tokens);
 	}
 	
 	public CharSequence getTranslation() {
 		if (translation == null)
-			translation = Tr8n.translateSpannableString(getLabel(), getDescription(), getTokens());
+			translation = Tml.translate(getLabel(), getDescription(), getTokens());
 			
-		return translation;
+		return Html.fromHtml(translation);
 	}	
-
 }

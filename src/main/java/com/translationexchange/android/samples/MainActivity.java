@@ -20,7 +20,7 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples;
+package com.translationexchange.android.samples;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,17 +40,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.tr8n.android.activities.LanguageSelectorActivity;
-import com.tr8n.android.activities.Tr8nActivity;
-import com.tr8n.android.samples.adapters.NavDrawerListAdapter;
-import com.tr8n.android.samples.fragments.CombinedTokensFragment;
-import com.tr8n.android.samples.fragments.DataTokensFragment;
-import com.tr8n.android.samples.fragments.DecorationTokensFragment;
-import com.tr8n.android.samples.fragments.WelcomeFragment;
-import com.tr8n.android.samples.models.NavDrawerItem;
-import com.tr8n.core.Tr8n;
+import com.translationexchange.android.activities.LanguageSelectorActivity;
+import com.translationexchange.android.activities.LocalizedActivity;
+import com.translationexchange.android.samples.R;
+import com.translationexchange.core.Tml;
+import com.translationexchange.android.samples.adapters.NavDrawerListAdapter;
+import com.translationexchange.android.samples.fragments.CombinedTokensFragment;
+import com.translationexchange.android.samples.fragments.DataTokensFragment;
+import com.translationexchange.android.samples.fragments.DecorationTokensFragment;
+import com.translationexchange.android.samples.fragments.WelcomeFragment;
+import com.translationexchange.android.samples.models.NavDrawerItem;
 
-public class MainActivity extends Tr8nActivity {
+public class MainActivity extends LocalizedActivity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -131,7 +132,7 @@ public class MainActivity extends Tr8nActivity {
 		    	startActivity(new Intent(MainActivity.this, LanguageSelectorActivity.class));
 				return true;
 			case R.id.inline_translator:
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Tr8n.getSession().getApplication().getHost() + "/mobile/login")));				
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Tml.getSession().getApplication().getHost() + "/mobile/login")));				
 //		    	startActivity(new Intent(MainActivity.this, InAppTranslatorActivity.class));
 				return true;
 			default:
@@ -204,7 +205,7 @@ public class MainActivity extends Tr8nActivity {
 	}
 	
 	@Override
-	public void onTr8nTranslate() {
+	public void onLocalize() {
 		((NavDrawerListAdapter)mDrawerList.getAdapter()).notifyDataSetChanged();
 	}
 

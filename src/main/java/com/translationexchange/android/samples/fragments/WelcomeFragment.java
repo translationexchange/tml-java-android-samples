@@ -20,7 +20,7 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples.fragments;
+package com.translationexchange.android.samples.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,11 +28,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.tr8n.android.fragments.Tr8nFragment;
-import com.tr8n.android.samples.R;
-import com.tr8n.core.Tr8n;
+import com.translationexchange.android.fragments.LocalizedFragment;
+import com.translationexchange.android.samples.R;
+import com.translationexchange.core.Tml;
 
-public class WelcomeFragment extends Tr8nFragment {
+public class WelcomeFragment extends LocalizedFragment {
 
 	private View rootView;
 	public WelcomeFragment(){}
@@ -44,16 +44,16 @@ public class WelcomeFragment extends Tr8nFragment {
     }
 	
 	@Override
-	public void onTr8nTranslate() {
+	public void onLocalize() {
 		if (rootView == null)
 			return;
 		
 		TextView textView = (TextView) rootView.findViewById(R.id.textview_title);
-		textView.setText(Tr8n.translate("Welcome To Tr8n Sample Application"));
+		textView.setText(Tml.translate("Welcome To Tr8n Sample Application"));
 		
 		textView = (TextView) rootView.findViewById(R.id.textview_intro);
-		textView.setText(Tr8n.translate("This application demonstrates some of Tr8n's capabilities.") 
-				+ " " + Tr8n.translate("Use the menu on the left to choose a sample."));
+		textView.setText(Tml.translate("This application demonstrates some of Tml's capabilities.") 
+				+ " " + Tml.translate("Use the menu on the left to choose a sample."));
 	}
 	
 }

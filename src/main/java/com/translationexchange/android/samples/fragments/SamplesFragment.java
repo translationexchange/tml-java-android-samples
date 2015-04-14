@@ -20,7 +20,7 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples.fragments;
+package com.translationexchange.android.samples.fragments;
 
 import java.util.List;
 
@@ -30,12 +30,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.tr8n.android.fragments.Tr8nFragment;
-import com.tr8n.android.samples.R;
-import com.tr8n.android.samples.adapters.SampleListAdapter;
-import com.tr8n.android.samples.models.Sample;
+import com.translationexchange.android.fragments.LocalizedFragment;
+import com.translationexchange.android.samples.R;
+import com.translationexchange.android.samples.adapters.SampleListAdapter;
+import com.translationexchange.android.samples.models.Sample;
 
-public abstract class SamplesFragment extends Tr8nFragment {
+public abstract class SamplesFragment extends LocalizedFragment {
 
 	protected ListView samplesList;
 	protected List<Sample> samples;
@@ -55,7 +55,7 @@ public abstract class SamplesFragment extends Tr8nFragment {
 	protected abstract List<Sample> getSamples();
 
 	@Override
-	public void onTr8nTranslate() {
+	public void onLocalize() {
 		((SampleListAdapter)samplesList.getAdapter()).notifyDataSetChanged();
 	}
 	

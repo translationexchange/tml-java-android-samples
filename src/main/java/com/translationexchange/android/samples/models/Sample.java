@@ -20,12 +20,12 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples.models;
+package com.translationexchange.android.samples.models;
 
 import java.util.Map;
 
-import com.tr8n.core.Tr8n;
-import com.tr8n.core.Utils;
+import com.translationexchange.core.Tml;
+import com.translationexchange.core.Utils;
 
 public class Sample {
 	protected String label;
@@ -73,7 +73,7 @@ public class Sample {
 	
 	public CharSequence getTranslation() {
 		if (translation == null)
-			translation = Tr8n.translate(getLabel(), getDescription(), getTokens());
+			translation = Tml.translate(getLabel(), getDescription(), getTokens());
 			
 		return translation;
 	}

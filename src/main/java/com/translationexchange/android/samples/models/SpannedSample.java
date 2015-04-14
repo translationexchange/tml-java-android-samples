@@ -20,33 +20,34 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples.fragments;
+package com.translationexchange.android.samples.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
-import com.tr8n.android.samples.models.HtmlSample;
-import com.tr8n.android.samples.models.Sample;
-import com.tr8n.core.Utils;
+import com.translationexchange.android.Tml;
 
-public class CombinedTokensFragment extends SamplesFragment {
+import android.text.Spannable;
+
+public class SpannedSample extends Sample {
+	Spannable translation;
 	
-	public CombinedTokensFragment(){}
-	
-	protected List<Sample> getSamples() {
-		if (samples == null) {
-			samples = new ArrayList<Sample>();
-			samples.add(new HtmlSample("You have [indent: {count|| message}]", Utils.buildMap(
-					"indent", "<strong>{$0}</strong>",
-					"count", 1
-					)));
-			samples.add(new HtmlSample("You have [indent: {count|| message}]", Utils.buildMap(
-					"indent", "<i>{$0}</i>",
-					"count", 5
-					)));
-		}
-		
-		return samples;
+	public SpannedSample(String title) {
+		super(title);
 	}
+	
+	public SpannedSample(String label, Map<String, Object> tokens) {
+		super(label, tokens);
+	}
+	
+	public SpannedSample(String label, String description, Map<String, Object> tokens) {
+		super(label, description, tokens);
+	}
+	
+	public CharSequence getTranslation() {
+		if (translation == null)
+			translation = Tml.translateSpannableString(getLabel(), getDescription(), getTokens());
+			
+		return translation;
+	}	
 
 }

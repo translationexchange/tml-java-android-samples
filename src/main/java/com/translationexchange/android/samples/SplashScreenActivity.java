@@ -20,14 +20,15 @@
  *  THE SOFTWARE.
  */
 
-package com.tr8n.android.samples;
+package com.translationexchange.android.samples;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.tr8n.android.activities.InitializationActivity;
-import com.tr8n.core.Tr8n;
-import com.tr8n.core.Utils;
+import com.translationexchange.android.activities.InitializationActivity;
+import com.translationexchange.android.samples.R;
+import com.translationexchange.core.Tml;
+import com.translationexchange.core.Utils;
 
 public class SplashScreenActivity extends InitializationActivity {
 
@@ -38,10 +39,10 @@ public class SplashScreenActivity extends InitializationActivity {
     }
 
     @Override
-    public void onTr8nBeforeInit() {
-        super.onTr8nBeforeInit();
+    public void onBeforeInit() {
+        super.onBeforeInit();
     	
-    	Tr8n.getConfig().setApplication(Utils.buildStringMap(
+    	Tml.getConfig().setApplication(Utils.buildStringMap(
 			"key", "3f7e22ee7fd92d55b",
 			"secret", "560312081ccd2298d",
 			"host", "https://sandbox.tr8nhub.com"
@@ -53,11 +54,11 @@ public class SplashScreenActivity extends InitializationActivity {
 //			"host", "http://10.0.2.2:3000"
 //    	));
         
-    	Tr8n.getCache().reset();
+    	Tml.getCache().reset();
     }
     
     @Override
-    public void onTr8nAfterInit() {
+    public void onAfterInit() {
     	Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
     	startActivity(intent);
     	finish();
